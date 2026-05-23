@@ -1,0 +1,72 @@
+@keyframes dance {
+  0%   { transform: translateY(0)   rotate(0deg)   scale(1); }
+  10%  { transform: translateY(-18px) rotate(-8deg) scale(1.05); }
+  20%  { transform: translateY(-10px) rotate(8deg)  scale(1.08); }
+  30%  { transform: translateY(-22px) rotate(-5deg) scale(1.05); }
+  40%  { transform: translateY(-8px)  rotate(10deg) scale(1.1); }
+  50%  { transform: translateY(-25px) rotate(0deg)  scale(1.12); }
+  60%  { transform: translateY(-8px)  rotate(-10deg) scale(1.08); }
+  70%  { transform: translateY(-20px) rotate(6deg)  scale(1.05); }
+  80%  { transform: translateY(-12px) rotate(-6deg) scale(1.08); }
+  90%  { transform: translateY(-18px) rotate(4deg)  scale(1.04); }
+  100% { transform: translateY(0)   rotate(0deg)   scale(1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%  { transform: rotate(-15deg); }
+  75%  { transform: rotate(15deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  40%       { transform: translateY(-30px) scaleY(1.05); }
+  60%       { transform: translateY(-25px) scaleY(0.98); }
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes floatNote {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.5); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,154,60,0.4); }
+  50%       { box-shadow: 0 0 0 20px rgba(255,154,60,0); }
+}
+
+@keyframes starFloat {
+  0%   { opacity:1; transform: translate(0,0) scale(1); }
+  100% { opacity:0; transform: translate(var(--tx), var(--ty)) scale(0.3); }
+}
+
+.cat-wrapper {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+
+.cat-wrapper.dance   { animation: dance   0.8s ease-in-out infinite; }
+.cat-wrapper.wiggle  { animation: wiggle  0.5s ease-in-out infinite; }
+.cat-wrapper.bounce  { animation: bounce  0.6s ease-in-out infinite; }
+.cat-wrapper.spin    { animation: spin    1.2s linear infinite; }
+
+.music-note {
+  position: absolute;
+  font-size: 1.6rem;
+  animation: floatNote 1.2s ease-out forwards;
+  pointer-events: none;
+  user-select: none;
+}
+
+.star-particle {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: starFloat 1s ease-out forwards;
+  pointer-events: none;
+}
